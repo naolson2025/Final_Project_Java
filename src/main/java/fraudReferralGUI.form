@@ -10,7 +10,7 @@
     <children>
       <scrollpane id="7966a">
         <constraints>
-          <grid row="10" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="9" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -45,40 +45,6 @@
         </constraints>
         <properties/>
       </component>
-      <component id="54c0f" class="javax.swing.JButton" binding="addCaseButton" default-binding="true">
-        <constraints>
-          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="142" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Add Case"/>
-        </properties>
-      </component>
-      <component id="b6c9b" class="javax.swing.JButton" binding="editCaseButton" default-binding="true">
-        <constraints>
-          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Edit Case"/>
-        </properties>
-      </component>
-      <component id="b0420" class="javax.swing.JButton" binding="deleteCaseButton" default-binding="true">
-        <constraints>
-          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Delete Case"/>
-        </properties>
-      </component>
-      <component id="1184d" class="javax.swing.JButton" binding="closeCaseButton" default-binding="true">
-        <constraints>
-          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Close Case"/>
-        </properties>
-      </component>
       <component id="4299c" class="javax.swing.JTextField" binding="researchNotesTextField">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
@@ -87,15 +53,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="ae9d9" class="javax.swing.JButton" binding="newCaseButton" default-binding="true">
-        <constraints>
-          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="New Case"/>
-        </properties>
-      </component>
-      <component id="69681" class="javax.swing.JLabel" binding="correctiveActionComboBox">
+      <component id="69681" class="javax.swing.JLabel" binding="correctiveActionLabel">
         <constraints>
           <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -219,7 +177,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="aea33" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="aea33" class="javax.swing.JComboBox" binding="correctiveActionComboBox">
         <constraints>
           <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -239,6 +197,38 @@
         </constraints>
         <properties>
           <text value="Date Created"/>
+        </properties>
+      </component>
+      <component id="ae9d9" class="javax.swing.JButton" binding="newCaseButton">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="New Case"/>
+        </properties>
+      </component>
+      <component id="b6c9b" class="javax.swing.JButton" binding="saveCaseButton">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Save Case"/>
+        </properties>
+      </component>
+      <component id="1184d" class="javax.swing.JButton" binding="closeCaseButton" default-binding="true">
+        <constraints>
+          <grid row="10" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Close Case"/>
+        </properties>
+      </component>
+      <component id="b0420" class="javax.swing.JButton" binding="deleteCaseButton" default-binding="true">
+        <constraints>
+          <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Delete Case"/>
         </properties>
       </component>
     </children>

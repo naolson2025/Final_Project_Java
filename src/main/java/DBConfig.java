@@ -68,7 +68,41 @@ public class DBConfig {
         }
     }
 
-    String addRecord(){
-        return "success";
+    String addRecord(String referral_source, String suspect_employee, String allegation_desc, String research_notes,
+                     int allegation_severity, boolean manager_contacted, String case_decision, String corrective_action){
+        // Get current date and time as SQL value
+        long currentDateLong = System.currentTimeMillis();
+        java.sql.Date currentDateSQL = new java.sql.Date(currentDateLong);
+
+        String addRecordSQL = "INSERT INTO fraud_referrals (date_created," +
+                                                            "referral_source," +
+                                                            "suspect_employee," +
+                                                            "allegation_description," +
+                                                            "research_notes," +
+                                                            "allegation_severity," +
+                                                            "manager_contacted," +
+                                                            "case_decision," +
+                                                            "corrective_action) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try(Connection connection = DriverManager.getConnection(db_url);
+        PreparedStatement ps = connection.prepareStatement(addRecordSQL)){
+            // construct SQL statement
+            ps.setDate(1, currentDateSQL);
+            ps.setString(2, referral_source);
+            ps.setString(3, suspect_employee);
+            ps.setString(4, allegation_desc);
+            ps.setString(5, research_notes);
+            ps.setInt(6, allegation_severity);
+            ps.setBoolean(7, manager_contacted);
+            ps.setString(8, case_decision);
+            ps.setString(9, corrective_action);
+
+            // execute ps statement
+            ps.execute();
+
+            return "success";
+        }catch (SQLException e){
+            return "Failed to create record";
+        }
     }
 }
