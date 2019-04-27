@@ -183,7 +183,24 @@ public class fraudReferralGUI extends JFrame{
         saveCaseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String result = dbConfig.updateRecord(referralSourceTextField.getText(),
+                        suspectEmployeeTextField.getText(),
+                        allegationDescriptionTextField.getText(),
+                        researchNotesTextField.getText(),
+                        Integer.parseInt(String.valueOf(allegationSeverityComboBox.getSelectedItem())),
+                        mgrContactedCheckBox.isSelected(),
+                        String.valueOf(caseDecisionComboBox.getSelectedItem()),
+                        String.valueOf(correctiveActionComboBox.getSelectedItem()),
+                        Integer.parseInt(fraudReferralJTable.getModel().getValueAt(fraudReferralJTable.getSelectedRow(), 0).toString()));
 
+                // refresh table
+                configureTable();
+
+                if (result.equals("success")){
+                    System.out.println("Case updated");
+                }else {
+                    showAlert("Failed to update case");
+                }
             }
         });
 
@@ -199,7 +216,9 @@ public class fraudReferralGUI extends JFrame{
         deleteCaseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                dbConfig.deleteRecord(Integer.parseInt(fraudReferralJTable.getModel().getValueAt(fraudReferralJTable.getSelectedRow(), 0).toString()));
+                configureTable();
+                clearAllFields();
             }
         });
     }
@@ -209,7 +228,7 @@ public class fraudReferralGUI extends JFrame{
         suspectEmployeeTextField.setText("");
         allegationDescriptionTextField.setText("");
         researchNotesTextField.setText("");
-        allegationSeverityComboBox.setSelectedItem("");
+        allegationSeverityComboBox.setSelectedItem("1");
         mgrContactedCheckBox.setSelected(false);
         caseDecisionComboBox.setSelectedItem("");
         correctiveActionComboBox.setSelectedItem("");

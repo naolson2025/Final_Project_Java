@@ -105,4 +105,54 @@ public class DBConfig {
             return "Failed to create record";
         }
     }
+
+    String updateRecord(String referral_source, String suspect_employee, String allegation_desc, String research_notes,
+                        int allegation_severity, boolean manager_contacted, String case_decision, String corrective_action, int case_id){
+        String updateRecordSQL = "UPDATE fraud_referrals SET referral_source = ?," +
+                                                            "suspect_employee = ?," +
+                                                            "allegation_description = ?," +
+                                                            "research_notes = ?," +
+                                                            "allegation_severity = ?," +
+                                                            "manager_contacted = ?," +
+                                                            "case_decision = ?," +
+                                                            "corrective_action = ?" +
+                                                            " WHERE case_id = ?";
+
+        try(Connection connection = DriverManager.getConnection(db_url);
+            PreparedStatement ps = connection.prepareStatement(updateRecordSQL)){
+            ps.setString(1, referral_source);
+            ps.setString(2, suspect_employee);
+            ps.setString(3, allegation_desc);
+            ps.setString(4, research_notes);
+            ps.setInt(5, allegation_severity);
+            ps.setBoolean(6, manager_contacted);
+            ps.setString(7, case_decision);
+            ps.setString(8, corrective_action);
+            ps.setInt(9, case_id);
+
+            ps.execute();
+
+            return "success";
+
+        }catch (SQLException SQLE){
+            throw new RuntimeException(SQLE);
+        }
+    }
+
+    String deleteRecord(int case_id){
+        String deleteRecordSQL = "DELETE FROM fraud_referrals WHERE case_id = ?";
+
+        try(Connection connection = DriverManager.getConnection(db_url);
+            PreparedStatement ps = connection.prepareStatement(deleteRecordSQL)){
+
+            ps.setInt(1, case_id);
+
+            ps.execute();
+
+            return "success";
+
+        }catch (SQLException SQLE){
+            throw new RuntimeException(SQLE);
+        }
+    }
 }
