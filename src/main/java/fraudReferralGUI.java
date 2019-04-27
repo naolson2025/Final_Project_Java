@@ -1,7 +1,7 @@
 import javax.swing.*;
 
-public class fraudReferralGUI {
-    private JPanel panel1;
+public class fraudReferralGUI extends JFrame{
+    private JPanel mainPanel;
     private JTable fraudReferralJTable;
     private JTextField referralSourceTextField;
     private JLabel referralSouceLabel;
@@ -30,4 +30,20 @@ public class fraudReferralGUI {
     private JLabel caseID;
     private JLabel dateCreatedLabel;
     private JLabel dateCreated;
+
+
+    private DBConfig dbConfig = new DBConfig();
+
+    public fraudReferralGUI(Referral referral){
+
+        setContentPane(mainPanel);
+        pack();
+        setVisible(true);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        // Rows non-edit found on stack overflow
+        fraudReferralJTable.setDefaultEditor(Object.class, null);
+        // Single selection in JTable
+        fraudReferralJTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+    }
 }

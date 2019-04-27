@@ -67,4 +67,8 @@ public class DBConfig {
             throw new RuntimeException(e);
         }
     }
+
+    String addRecord(){
+        return "success";
+    }
 }
