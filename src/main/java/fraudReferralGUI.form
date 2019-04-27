@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="fraudReferralGUI">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="11" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="724" height="490"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <scrollpane id="7966a">
+        <constraints>
+          <grid row="10" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="2530" class="javax.swing.JTable" binding="fraudReferralJTable">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="239d7" class="javax.swing.JTextField" binding="referralSourceTextField">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="b7e8e" class="javax.swing.JTextField" binding="suspectEmployeeTextField">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="add6a" class="javax.swing.JTextField" binding="allegationDescriptionTextField">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="54c0f" class="javax.swing.JButton" binding="addCaseButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="142" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Add Case"/>
+        </properties>
+      </component>
+      <component id="b6c9b" class="javax.swing.JButton" binding="editCaseButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Edit Case"/>
+        </properties>
+      </component>
+      <component id="b0420" class="javax.swing.JButton" binding="deleteCaseButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Delete Case"/>
+        </properties>
+      </component>
+      <component id="1184d" class="javax.swing.JButton" binding="closeCaseButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Close Case"/>
+        </properties>
+      </component>
+      <component id="4299c" class="javax.swing.JTextField" binding="researchNotesTextField">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="ae9d9" class="javax.swing.JButton" binding="newCaseButton" default-binding="true">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="New Case"/>
+        </properties>
+      </component>
+      <component id="69681" class="javax.swing.JLabel" binding="correctiveActionComboBox">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Corrective Action Delivered:"/>
+        </properties>
+      </component>
+      <component id="2abed" class="javax.swing.JLabel" binding="caseDecisionLabel">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Case Decision:"/>
+        </properties>
+      </component>
+      <component id="36d59" class="javax.swing.JLabel" binding="susEmployeeMgrContLabel">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Suspect Employee Manager Contacted?"/>
+        </properties>
+      </component>
+      <component id="564d0" class="javax.swing.JLabel" binding="allegationSeverityLabel">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="142" height="16"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Allegation Severity:"/>
+        </properties>
+      </component>
+      <component id="526a4" class="javax.swing.JLabel" binding="researchNotesLabel">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Research Notes:"/>
+        </properties>
+      </component>
+      <component id="d92ba" class="javax.swing.JLabel" binding="allegationDescriptionLabel">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="142" height="16"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Allegation Description:"/>
+        </properties>
+      </component>
+      <component id="db1f2" class="javax.swing.JLabel" binding="suspectEmployeeLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="142" height="16"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Suspect Employee"/>
+        </properties>
+      </component>
+      <component id="9d4c3" class="javax.swing.JLabel" binding="referralSouceLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="142" height="16"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Referral Source:"/>
+        </properties>
+      </component>
+      <component id="f9779" class="javax.swing.JLabel" binding="caseIDLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Case ID:"/>
+        </properties>
+      </component>
+      <component id="35f93" class="javax.swing.JLabel" binding="caseID">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Case ID"/>
+        </properties>
+      </component>
+      <component id="a742b" class="javax.swing.JComboBox" binding="allegationSeverityComboBox">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="f730f" class="javax.swing.JLabel" binding="highest">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="1 = Highest"/>
+        </properties>
+      </component>
+      <component id="c03b9" class="javax.swing.JLabel" binding="lowest">
+        <constraints>
+          <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="5 = Lowest"/>
+        </properties>
+      </component>
+      <component id="76d1f" class="javax.swing.JCheckBox" binding="mgrContactedCheckBox">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Yes"/>
+        </properties>
+      </component>
+      <component id="ad383" class="javax.swing.JComboBox" binding="caseDecisionComboBox">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="aea33" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+        <constraints>
+          <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="60d52" class="javax.swing.JLabel" binding="dateCreatedLabel">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Date Created:"/>
+        </properties>
+      </component>
+      <component id="6457f" class="javax.swing.JLabel" binding="dateCreated">
+        <constraints>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Date Created"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
