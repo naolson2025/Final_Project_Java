@@ -30,6 +30,7 @@ public class DBConfig {
             boolean manager_contacted;
             String case_decision;
             String corrective_action;
+            boolean case_closed;
 
             while (rs.next()){
                 // put each column into a variable and add it to the caseVectors list
@@ -43,6 +44,7 @@ public class DBConfig {
                 manager_contacted = rs.getBoolean("manager_contacted");
                 case_decision = rs.getString("case_decision");
                 corrective_action = rs.getString("corrective_action");
+                case_closed = rs.getBoolean("case_closed");
 
                 // Create vector and add all variables
                 Vector v = new Vector();
@@ -56,6 +58,7 @@ public class DBConfig {
                 v.add(manager_contacted);
                 v.add(case_decision);
                 v.add(corrective_action);
+                v.add(case_closed);
 
                 // Add the vector to the caseVectors list
                 caseVectors.add(v);
@@ -69,7 +72,7 @@ public class DBConfig {
     }
 
     String addRecord(String referral_source, String suspect_employee, String allegation_desc, String research_notes,
-                     int allegation_severity, boolean manager_contacted, String case_decision, String corrective_action){
+                     int allegation_severity, boolean manager_contacted, String case_decision, String corrective_action, boolean case_closed){
         // Get current date and time as SQL value
         long currentDateLong = System.currentTimeMillis();
         java.sql.Date currentDateSQL = new java.sql.Date(currentDateLong);
@@ -82,7 +85,8 @@ public class DBConfig {
                                                             "allegation_severity," +
                                                             "manager_contacted," +
                                                             "case_decision," +
-                                                            "corrective_action) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                                            "corrective_action," +
+                                                            "case_closed) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection connection = DriverManager.getConnection(db_url);
         PreparedStatement ps = connection.prepareStatement(addRecordSQL)){
@@ -96,6 +100,7 @@ public class DBConfig {
             ps.setBoolean(7, manager_contacted);
             ps.setString(8, case_decision);
             ps.setString(9, corrective_action);
+            ps.setBoolean(10, case_closed);
 
             // execute ps statement
             ps.execute();
@@ -107,7 +112,7 @@ public class DBConfig {
     }
 
     String updateRecord(String referral_source, String suspect_employee, String allegation_desc, String research_notes,
-                        int allegation_severity, boolean manager_contacted, String case_decision, String corrective_action, int case_id){
+                        int allegation_severity, boolean manager_contacted, String case_decision, String corrective_action, boolean case_closed, int case_id){
         String updateRecordSQL = "UPDATE fraud_referrals SET referral_source = ?," +
                                                             "suspect_employee = ?," +
                                                             "allegation_description = ?," +
@@ -115,7 +120,8 @@ public class DBConfig {
                                                             "allegation_severity = ?," +
                                                             "manager_contacted = ?," +
                                                             "case_decision = ?," +
-                                                            "corrective_action = ?" +
+                                                            "corrective_action = ?," +
+                                                            "case_closed = ?" +
                                                             " WHERE case_id = ?";
 
         try(Connection connection = DriverManager.getConnection(db_url);
@@ -128,7 +134,8 @@ public class DBConfig {
             ps.setBoolean(6, manager_contacted);
             ps.setString(7, case_decision);
             ps.setString(8, corrective_action);
-            ps.setInt(9, case_id);
+            ps.setBoolean(9, case_closed);
+            ps.setInt(10, case_id);
 
             ps.execute();
 

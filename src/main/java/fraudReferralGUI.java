@@ -35,6 +35,7 @@ public class fraudReferralGUI extends JFrame{
     private JLabel caseID;
     private JLabel dateCreatedLabel;
     private JLabel dateCreated;
+    private JCheckBox caseClosedCheckBox;
 
     // Use of the DB config methods in the fraudReferralGui class
     private DBConfig dbConfig = new DBConfig();
@@ -110,6 +111,7 @@ public class fraudReferralGUI extends JFrame{
         colNames.add("Manager Contacted");
         colNames.add("Case Decision");
         colNames.add("Corrective Action");
+        colNames.add("Case Closed");
 
         return colNames;
     }
@@ -133,6 +135,7 @@ public class fraudReferralGUI extends JFrame{
             mgrContactedCheckBox.setSelected(Boolean.valueOf(fraudReferralJTable.getModel().getValueAt(selectedRow, 7).toString()));
             caseDecisionComboBox.setSelectedItem(fraudReferralJTable.getModel().getValueAt(selectedRow, 8));
             correctiveActionComboBox.setSelectedItem(fraudReferralJTable.getModel().getValueAt(selectedRow, 9));
+            caseClosedCheckBox.setSelected(Boolean.valueOf(fraudReferralJTable.getModel().getValueAt(selectedRow, 10).toString()));
         }catch (IndexOutOfBoundsException e){
             System.out.println("No row was selected");
         }
@@ -161,7 +164,8 @@ public class fraudReferralGUI extends JFrame{
                         Integer.parseInt(String.valueOf(allegationSeverityComboBox.getSelectedItem())),
                         mgrContactedCheckBox.isSelected(),
                         String.valueOf(caseDecisionComboBox.getSelectedItem()),
-                        String.valueOf(correctiveActionComboBox.getSelectedItem()));
+                        String.valueOf(correctiveActionComboBox.getSelectedItem()),
+                        caseClosedCheckBox.isSelected());
 
                 // Will add the blank case to the JTable
                 configureTable();
@@ -170,7 +174,7 @@ public class fraudReferralGUI extends JFrame{
                 fraudReferralJTable.setRowSelectionInterval(lastRow, lastRow);
                 // Will update the case ID and date in the GUI
                 setFields();
-
+                // print case created if successful, show alert if not
                 if (result.equals("success")){
                     System.out.println("Case created");
                 }else {
@@ -191,6 +195,7 @@ public class fraudReferralGUI extends JFrame{
                         mgrContactedCheckBox.isSelected(),
                         String.valueOf(caseDecisionComboBox.getSelectedItem()),
                         String.valueOf(correctiveActionComboBox.getSelectedItem()),
+                        caseClosedCheckBox.isSelected(),
                         Integer.parseInt(fraudReferralJTable.getModel().getValueAt(fraudReferralJTable.getSelectedRow(), 0).toString()));
 
                 // refresh table
@@ -204,21 +209,19 @@ public class fraudReferralGUI extends JFrame{
             }
         });
 
-        // close case button is clicked
-        closeCaseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
         // delete case button is clicked
         deleteCaseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                dbConfig.deleteRecord(Integer.parseInt(fraudReferralJTable.getModel().getValueAt(fraudReferralJTable.getSelectedRow(), 0).toString()));
-                configureTable();
-                clearAllFields();
+                int choice = JOptionPane.showConfirmDialog( null,"Confirm you want to delete:", null, JOptionPane.YES_NO_OPTION);
+
+                if (choice == 0) {
+                    dbConfig.deleteRecord(Integer.parseInt(fraudReferralJTable.getModel().getValueAt(fraudReferralJTable.getSelectedRow(), 0).toString()));
+                    configureTable();
+                    clearAllFields();
+                } else {
+                    System.out.println("case deletion cancelled");
+                }
             }
         });
     }
@@ -232,6 +235,7 @@ public class fraudReferralGUI extends JFrame{
         mgrContactedCheckBox.setSelected(false);
         caseDecisionComboBox.setSelectedItem("");
         correctiveActionComboBox.setSelectedItem("");
+        caseClosedCheckBox.setSelected(false);
     }
 
 }
